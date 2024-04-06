@@ -1,0 +1,95 @@
+//my secong game"snake and ladder"if you want you can alter snake,ladder value time 4.54 you wake up at 2.24 2.40 hours op is😎😎
+
+#include <stdio.h>
+#include<stdlib.h>
+#include<time.h>
+int array[101];
+int print()
+{
+    int i;
+    for(int p=10;p>=1;p--)
+    {
+    if(p%2!=0)
+    for(i=((p-1)*10)+1;i<=10*p;i++){
+        if(i<10)
+         printf(" %d ",array[i]);
+        else
+    printf("%d ",array[i]);}
+    
+    else
+    for(i=p*10;i>(p-1)*10;i--)
+    printf("%d ",array[i]);printf("\n");
+}}
+int main()
+{
+time_t a;int m,u1=0,u2=0,z=0,k1=0,k2=0;
+
+int snake[6]={17,33,46,76,88,95};
+int ladder[6]={8,23,38,57,67,71};
+
+srand((int)time(&a));
+int p=rand()%6;
+for(int i=1;i<=100;i++)
+{
+    array[i]=i;
+}
+print();
+printf("PROGRAM STARTS NOW\n");
+for(int y=0;;y++)
+{
+    printf("please press 1:");
+    scanf("%d",&z);
+    m=rand()%6;
+    if(m==0)
+    m=6;
+     printf("\nyour die value is:%d\n",m);
+     if(y%2==0){
+         if(u1+m<100){
+             if(k2==1){array[u1]=-1;
+             k2=0;
+             }
+             else
+             array[u1]=u1;
+          u1=u1+m;
+          if(u1==snake[0]||u1==snake[1]||u1==snake[2]||u1==snake[3]||u1==snake[4]||u1==snake[5]){
+          u1=u1-3;printf("\nopps you landed on snake\n");}
+          else if(u1==ladder[0]||u1==ladder[1]||u1==ladder[2]||u1==ladder[3]||u1==ladder[4]||u1==ladder[5]){ u1=u1+3;printf("\nwow you landed on ladder\n");}
+     if(u1==u2){k1=1;
+          array[u2]=-2;}
+             else
+              array[u1]=0;print();
+         }
+         if(u1+m==100){
+         printf("win 1");
+       break;}
+     }
+  else
+  {
+         if(u2+m<100){
+             if(k1==1){k1=0;
+             array[u2]=0;}
+             
+             else
+             array[u2]=u2;
+          u2=u2+m;
+          if(u2==snake[0]||u2==snake[1]||u2==snake[2]||u2==snake[3]||u2==snake[4]||u2==snake[5]){
+          u2=u2-3;printf("\nopps you landed on snake\n");}
+          else if(u2==ladder[0]||u2==ladder[1]||u2==ladder[2]||u2==ladder[3]||u2==ladder[4]||u2==ladder[5]){
+          u2=u2+3;printf("\nwow you landed on ladder\n");}
+          
+          
+          if(u1==u2){k2=1;
+          array[u2]=-2;}
+            else
+              array[u2]=-1;
+              print();
+         }
+         if(u2+m==100){
+         printf("win 2");
+         break;}
+  }
+}
+
+    return 0;
+}
+
